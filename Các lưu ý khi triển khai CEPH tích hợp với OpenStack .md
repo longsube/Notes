@@ -33,7 +33,7 @@ giám sát mã nguồn mở của bên thứ ba, VD như CEPH plugin cho Zabbix 
 
 # 3. Vận hành CEPH
 ### 3.1 Clock drift và network latency
-Cần cài đặt NTP trên các node Ceph, đặc biệt trên các node Monitor
+Cần cài đặt NTP trên các node Ceph, đặc biệt trên các node Monitor.
 
 ### 3.2 Splitting Placement Groups
 Khi thêm OSD vào ceph cluster, tiến trình recovery sẽ kéo dài với một số lượng OSD và số lượng tương tự PG. Giải pháp cho vấn đề này là tăng số PG bằng cách tách nhỏ các PG đang có. Ceph cho phép tăng số lượng PG bằng cácg update các thông của pool. Cách tốt nhất là tăng số lượng PG qua những lần tăng nhỏ.
@@ -51,21 +51,21 @@ Crush map trong Ceph cluster liệt kê các node vật lý khả dụng và cá
 
 # 4. Ceph Troubleshooting
 Đê khởi động cluster sau khi restart:
- 1. Đảm bảo kết nối mạng giữa các node
- 2. Bật các node monitor
- 3. Chờ quorum được thiết lập
- 4. Khởi động các OSD
+ 1. Đảm bảo kết nối mạng giữa các node.
+ 2. Bật các node monitor.
+ 3. Chờ quorum được thiết lập.
+ 4. Khởi động các OSD.
 
 Lưu ý: trạng thái peering có thể mất thời gian ở các cluster lớn. Bạn có thể tăng heartneat interval, heartbeat timeout và OSD report timeput cho các cluster này.
 
 ## 4.1 Vấn đề với OSD
 Nếu cluster có vấn đề, Ceph status sẽ có các thông tin sau:
- - Trạng thái hiện tại của OSD (up/down và out/in)
- - OSD gần đặt tới hạn dung lượng (near full/full)
- - Trạng thái hiện thời của PG
+ - Trạng thái hiện tại của OSD (up/down và out/in).
+ - OSD gần đặt tới hạn dung lượng (near full/full).
+ - Trạng thái hiện thời của PG.
 
 ### 4.1.1 Ceph gần hết dung lượng
-Trạng thái warning và error có thể xem thông qua các câu lệnh `ceph -s` và `ceph health`. Dung lượng OSD được xem bằng lệnh *ceph osd df*. Khi một OSD gần tới ngưỡng đầy (mặc định là 95%), nó sẽ tạm dừng tât cả lệnh ghi xuống, trong khi lệnh đọc vẫn được thực thi. Giải pháp là thêm các OSD (hoặc giải pháp tạm thời là thay đổi CRUSH map, thay đổi weight chọn OSD).
+Trạng thái warning và error có thể xem thông qua các câu lệnh `ceph -s` và `ceph health`. Dung lượng OSD được xem bằng lệnh `ceph osd df`. Khi một OSD gần tới ngưỡng đầy (mặc định là 95%), nó sẽ tạm dừng tât cả lệnh ghi xuống, trong khi lệnh đọc vẫn được thực thi. Giải pháp là thêm các OSD (hoặc giải pháp tạm thời là thay đổi CRUSH map, thay đổi weight chọn OSD).
 
 ### 4.1.2 OSD hết dung lượng
 Dùng `ceph osd out [osd-id]` để OSD ngừng ghi dữ liệu vào OSD đó.
@@ -84,10 +84,10 @@ Hiệu năng của Ceph phụ thuộc nhiều yếu tó, gồm cấu hình một
 
 ## 5.1 Lưu trữ
 <ul>
-<li>Dùng các ổ riêng biệt cho OS, OSD data và OSD journal</li>
+<li>Dùng các ổ riêng biệt cho OS, OSD data và OSD journal.</li>
 <li>Dùng SSD cho OSD journal. Có thể dùng nhiều journal trêm 1 SSD , nhưng đảm bảo SSD không bị thắt cổ chai. Đảm bảo tỉ lệ truyền dữ liệu và IOPS trên SSD đáp ứng yêu cầu. Cần chú ý rằng khi SSD bị lỗi, toàn bộ OSD đặt journal trên SSD đó sẽ không thê sử dụng được. Không đặt quá 5-6 OSD journal trên 1 SSD.</li>
-<li>Không chạy nhiều OSD trên 1 disk</li>
-<li>Càng dùng nhiều OSD node, hiệu năng trung bình càng cao</li>
+<li>Không chạy nhiều OSD trên 1 disk.</li>
+<li>Càng dùng nhiều OSD node, hiệu năng trung bình càng cao.</li>
 </ul>
 
 ## 5.2 Filesystem
@@ -96,8 +96,8 @@ Ceph hỗ trợ btrfs, XFS và ext4. Tuy nhiên không nên dùng btrfs để pr
 ## 5.3 Placement Groups
 Tổng số lượng PG có thể ảnh hưởng đến hiệu năng của Ceph cluster. Nếu số PG quá lớn, cluster sẽ tiêu tốn quá nhiều tài nguyên CPU và RAM. Nếu số PG quá nhỏ, việc recovery sẽ tốn nhiều thời gian.
 Cần tìm ra số PG phù hợp ở 2 mức sau:
-- Mức cluster (tổng)
-- Mức pool (PG cho pool)
+- Mức cluster (tổng).
+- Mức pool (PG cho pool).
 Số PG được đê xuất cho mối OSD là 100-200.
 
 ## 5.4 RAM/CPU
@@ -110,4 +110,4 @@ Không nên cài OSD trên cùng 1 node với các dịch vụ khác, VD như no
 ## 5.6 RADOS Gateway
 RADOS Gateway có thể là một nút thắt cổ chai cho OpenStack cloud. Giải pháp là sử dụng nhiều radosgw kết hợp với load balancing.
 
-
+Tham khảo: http://www.stratoscale.com/blog/storage/deploying-ceph-challenges-solutions/?utm_source=twitter&utm_medium=social&utm_campaign=blog_deploying-ceph-challenges-solutions
