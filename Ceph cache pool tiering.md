@@ -14,12 +14,17 @@ Cache pool trong Ceph mang tới khả năng giãn nở và phân tán cho cache
 ### Mô tả thiết kế
  - Các node Controller được cài đặt Ceph Monitor daemon.
  - Các node Compute được đặt các SSD làm cache, dữ liệu 'nóng' sẽ được đặt trên 2 lớp cache là RBD cache và SSD cache pool để phục vụ việc đọc liên tục, trong khi dữ liệu được ghi xuống data pool. SSD cache pool sẽ không được sao chép nhiều phiên bản, hoặc chỉ sao chép giữa các local SSD. Việc bổ xung tài nguyên tính toán đon giản là chỉ cần thêm các node Compute với SSD cache.
- - Dữ liệu 'nguội' (ít được truy xuất) sẽ được ghi lên Data pool, bao gồm các Server chứa các SATA disk dung lượng lớn, pool này sử dụng Erasure code để tiết kiệm tài nguyên, vì không cần tốc độ truy xuất cao, chỉ cần dung lượng lớn. Các dữ liệu được truy xuất nhiều sẽ được đẩy ngược lên SSD cache pool (tùy theo policy cấu hình)
+ - Dữ liệu 'nguội' (ít được truy xuất) sẽ được ghi lên Data pool, bao gồm các Server chứa các SATA disk dung lượng lớn, pool này sử dụng Erasure code để tiết kiệm tài nguyên, vì không cần tốc độ truy xuất cao, chỉ cần dung lượng lớn. Các dữ liệu được truy xuất nhiều sẽ được đẩy ngược lên SSD cache pool (tùy theo policy cấu hình).
+
 Mục đích của thiết kế:
+
  - **Khả năng mở rộng**: Tất cả compute và storage nodes đều có thể mở rộng theo chiều ngang. Nếu cần thêm tài nguyên, chỉ cần bổ xung thêm Server.
  - **Tính đãn hồi và sẵn sàng**: giống như các pool khác trong ceph cả Cache pool và Erasure code pool đểu có thể phân tán trên nhiều Server.
  - **Lưu trữ tốc độ cao**: với cơ chế cache này có thẻ đạt được hiêu năng rất cao, bằng cách đặt SSD trên các compute node, ta có thể kiểm soát IO ởm ức hypervisor. Việc này cho phép cache hit tại local, giúp giảm đáng kể latency.
  - **Lưu trữ mật độ cao giá thành thấp **: Khi đặt các dữ liệu "nóng" trên cache pool. Dữ liệu nóng được luân chuyển thường xuyên từ cachl tới data pool, ở đây data pool được gọi là dữ liệu "nguội". Pool này được cấu hình erasure code. Nhờ erasure code, ta có thể lưu trữ dữ liệu hiệu quả hơn và tiết kiệm tài nguyên hơn nhờ vào các thông số cài đặt trên erassure pool.
  Ở đây ta sử dụng các ổ đĩa SATA dung lượng lớn.
  - **Dễ dàng trong quản trị **: Mô hình này giúp việc quản trị rất đơn giản.
+
+ Tham khảo:
+ http://www.sebastien-han.fr/blog/2014/06/10/ceph-cache-pool-tiering-scalable-cache/
 
