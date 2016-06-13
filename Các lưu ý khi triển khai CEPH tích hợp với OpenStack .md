@@ -46,19 +46,19 @@ Tuy nhiên, erasure code không nên dùng với RBD
 ### 3.4 Ưu tiên dữ liệu cục bộ
 Trong Ceph, primary OSD phục vụ việc đọc và ghi khi một object được yêu cầu. Tuy nhiên, cần đảm bảo rầng primary OSD được đặt trên cùng một rack hoặc DC với client. Ceph cho phép sử dụng tính năng primary OSD affinity để thực hiện điểu này. Mặc định, bất cứ OSD nào cũng có thể được chon là primary và tât cả OSD có primary ratio  là 1.0. Nếu priamry ratio giảm về 0, OSD sẽ không thể trơ thành primary OSD
 
-### 3.5 Bucker hierarchy 
-Crush map trong Ceph cluster liệt kê các node vật lý khả dụng và các thiết bị lưu trữ của nó. CRUSH map cũng bao gồm một hạ tầng lưu trữ được định nghĩa trước, Bucket mặc định gồm server, rack, row và site. Có thể thêm nhiều backet vào hierarchy để mô phỏng hạ tầng DC thực tế. Bạn cũng có thể định nghĩa các policy cho việc backup dựa trên các bucket khả dụng trong CRUSH map
+### 3.5 Bucket hierarchy 
+Crush map trong Ceph cluster liệt kê các node vật lý khả dụng và các thiết bị lưu trữ của nó. CRUSH map cũng bao gồm một hạ tầng lưu trữ được định nghĩa trước, Bucket mặc định gồm server, rack, row và site. Có thể thêm nhiều bucket vào hierarchy để mô phỏng hạ tầng DC thực tế. Bạn cũng có thể định nghĩa các policy cho việc backup dựa trên các bucket khả dụng trong CRUSH map
 
 # 4. Ceph Troubleshooting
 Đê khởi động cluster sau khi restart:
-1. Đảm bảo kết nối mạng giữa các node
-2. Bật các node monitor
-3. Chờ quorum được thiết lập
-4. Khởi động các OSD
+ 1. Đảm bảo kết nối mạng giữa các node
+ 2. Bật các node monitor
+ 3. Chờ quorum được thiết lập
+ 4. Khởi động các OSD
 
 Lưu ý: trạng thái peering có thể mất thời gian ở các cluster lớn. Bạn có thể tăng heartneat interval, heartbeat timeout và OSD report timeput cho các cluster này
 
-## 4.1 Vấn đê với OSD
+## 4.1 Vấn đề với OSD
 Nếu cluster có vấn đề, Ceph status sẽ có các thông tin sau:
  - Trạng thái hiện tại của OSD (up/down và out/in)
  - OSD gần đặt tới hạn dung lượng (near full/full)
@@ -76,7 +76,7 @@ Khi một OSD journal bị lỗi, tất cả OSD dùng journal lỗi đó cần 
 ### 4.1.4 Stale PG 
 Khi tất cả các OSD có các bản copy của một PG nào đó bị down và roi vào trạng thái out, PG đó bị đánh dấu là stale. Để giải quyết tình trạng này cần phải có ít nhất 1 OSD chứa bản copy của PG, nếu không PG đó coi như mất.
 
-## 4.2 Vấn để với Monitor
+## 4.2 Vấn đề với Monitor
 Khi một node Monitor lỗi, gỡ ra khỏi cluster và thêm một node mới
 
 # 5. Hiệu năng của Ceph
