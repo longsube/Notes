@@ -21,9 +21,9 @@ Mục đích của thiết kế:
  - **Khả năng mở rộng**: Tất cả compute và storage nodes đều có thể mở rộng theo chiều ngang. Nếu cần thêm tài nguyên, chỉ cần bổ xung thêm Server.
  - **Tính đãn hồi và sẵn sàng**: giống như các pool khác trong ceph cả Cache pool và Erasure code pool đểu có thể phân tán trên nhiều Server.
  - **Lưu trữ tốc độ cao**: với cơ chế cache này có thẻ đạt được hiêu năng rất cao, bằng cách đặt SSD trên các compute node, ta có thể kiểm soát IO ởm ức hypervisor. Việc này cho phép cache hit tại local, giúp giảm đáng kể latency.
- - **Lưu trữ mật độ cao giá thành thấp **: Khi đặt các dữ liệu "nóng" trên cache pool. Dữ liệu nóng được luân chuyển thường xuyên từ cachl tới data pool, ở đây data pool được gọi là dữ liệu "nguội". Pool này được cấu hình erasure code. Nhờ erasure code, ta có thể lưu trữ dữ liệu hiệu quả hơn và tiết kiệm tài nguyên hơn nhờ vào các thông số cài đặt trên erassure pool.
+ - **Lưu trữ mật độ cao giá thành thấp**: Khi đặt các dữ liệu "nóng" trên cache pool. Dữ liệu nóng được luân chuyển thường xuyên từ cachl tới data pool, ở đây data pool được gọi là dữ liệu "nguội". Pool này được cấu hình erasure code. Nhờ erasure code, ta có thể lưu trữ dữ liệu hiệu quả hơn và tiết kiệm tài nguyên hơn nhờ vào các thông số cài đặt trên erassure pool.
  Ở đây ta sử dụng các ổ đĩa SATA dung lượng lớn.
- - **Dễ dàng trong quản trị **: Mô hình này giúp việc quản trị rất đơn giản.
+ - **Dễ dàng trong quản trị**: Mô hình này giúp việc quản trị rất đơn giản.
 
  Tham khảo:
  http://www.sebastien-han.fr/blog/2014/06/10/ceph-cache-pool-tiering-scalable-cache/
