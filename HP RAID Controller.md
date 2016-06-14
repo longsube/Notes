@@ -26,7 +26,7 @@ Type "exit" to close the console.
  # hpacucli rescan
  ```
 
- ## 3. Hiển thị trạng thái của Controller và ổ đĩa
+## 3. Hiển thị trạng thái của Controller và ổ đĩa
  ```
   hpacucli
 HP Array Configuration Utility CLI 9.20.9.0
@@ -158,5 +158,7 @@ Câu lệnh để bật hoặc tắt trên RAID Controller.
 Câu lệnh trên sẽ bật tắt đèn trên các ổ đĩa vật lý mà thuộc ổ đĩa logic số 2.
 
 Tham khảo:
+
 http://www.thegeekstuff.com/2014/07/hpacucli-examples/
+
 http://hwraid.le-vert.net/wiki/SmartArray
