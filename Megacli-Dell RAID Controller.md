@@ -25,7 +25,7 @@ megacli -PDList -aALL
 
 ## 5. Sử dụng Script sau để kiểm tra nhanh tình trạng ổ đĩa:
 ```
-#wget https://github.com/longsube/megaclisas-status/blob/master/megaclisas-status
+# wget https://github.com/longsube/megaclisas-status/blob/master/megaclisas-status
 # python megaclisas-status
 -- Controller info --
 -- ID | Model
@@ -45,3 +45,5 @@ Như vậy, 2 ổ đĩa đang được cấu hình RAID 1, với dung lượng s
 Tham khảo:
 
 https://artipc10.vub.ac.be/wordpress/2011/09/12/megacli-useful-commands/
+
+http://hwraid.le-vert.net/wiki/LSIMegaRAIDSAS
