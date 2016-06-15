@@ -28,7 +28,7 @@ Type "exit" to close the console.
 
 ## 3. Hiển thị trạng thái của Controller và ổ đĩa
  ```
-  hpacucli
+ => hpacucli
 HP Array Configuration Utility CLI 9.20.9.0
 Detecting Controllers...Done.
 Type "help" for a list of supported commands.
@@ -148,7 +148,7 @@ Smart Array P420i in Slot 0 (Embedded)
 
 => ctrl slot=0 modify dwc=enable
 ```
-Câu lệnh để bật hoặc tắt trên RAID Controller.
+Câu lệnh để bật hoặc tắt cache trên RAID Controller.
 
 ## 10. Nháy đèn thông báo ổ đĩa
 ```
