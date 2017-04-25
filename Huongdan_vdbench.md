@@ -24,6 +24,8 @@ root@ubuntu:~# cd vdbench50406/
 ```
 root@ubuntu:~/vdbench50406# vim single-vol
 ```
+
+Kịch bản này thực hiện test tải trên 1 ổ cứng đơn của máy ảo `/dev/sdb`
 Nội dung
 
 ```
