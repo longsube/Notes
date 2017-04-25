@@ -81,4 +81,7 @@ Trong đó:
 Tham khảo:
 
 [1] - https://support.zadarastorage.com/hc/en-us/articles/213024266-How-To-use-Vdbench-to-measure-performance-in-Linux
+
 [2] - https://blogs.oracle.com/henk/entry/vdbench_workload_skew
+
+[3] - https://github.com/longsube/Notes/blob/master/docs/vdbench.pdf
