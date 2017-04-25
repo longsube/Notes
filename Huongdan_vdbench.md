@@ -78,8 +78,35 @@ root@ubuntu:~/vdbench50406# ./vdbench -f single-vol -o singleout/
 ```
 
 Trong đó:
+
 `single-vol`: tên của script được chạy
+
 `singleout`: tên thư mục chứa file kết quả test (nằm cùng mức với thư mục chứa chương trình chạy `/root/vdbench50406`)
+
+Sau khi chạy script xong, kiểm tra thư mục `singleout/`
+
+![VDBecnch 1](/images/vdbench/vdbench_1.jpg)
+
+## 5. Kiểm tra kết quả test
+
+ 
+ - `status.html`
+ Kiểm tra thông tin các bước thực hiện script
+ ![VDBecnch 2](/images/vdbench/vdbench_2.jpg)
+
+ - `summary.html`
+ Kiểm tra thông tin tổng quát về quá trình chạy script
+ ![VDBecnch 3](/images/vdbench/vdbench_3.jpg)
+
+ - `localhost.html`
+ Kiểm tra thông tin tổng quát về quá trình chạy script tại 1 host cố định
+ (Vì kịch bản trên chỉ chạy trên 1 host nên file `summary.html` và `localhost.html` sẽ giống nhau)
+ ![VDBecnch 4](/images/vdbench/vdbench_4.jpg)
+
+ - `flatfile.html`
+ Thông tin chi tiết của quá trình test
+ ![VDBecnch 5](/images/vdbench/vdbench_5.jpg)
+
 
 Tham khảo:
 
