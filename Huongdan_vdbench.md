@@ -84,4 +84,4 @@ Tham khảo:
 
 [2] - https://blogs.oracle.com/henk/entry/vdbench_workload_skew
 
-[3] - https://github.com/longsube/Notes/blob/master/docs/vdbench.pdf
+[3] - [VDBench Guide](/docs/vdbench.pdf)
