@@ -25,8 +25,7 @@ root@ubuntu:~# cd vdbench50406/
 root@ubuntu:~/vdbench50406# vim single-vol
 ```
 
-Kịch bản này thực hiện test tải trên 1 ổ cứng đơn của máy ảo `/dev/sdb`
-Nội dung
+Kịch bản này thực hiện test tải trên 1 ổ cứng đơn của máy ảo `/dev/sdb`. Nội dung
 
 ```
 *This is a python generated script for vdbench
@@ -39,7 +38,7 @@ wd=wd1_0,sd=sd*,rdpct=0,seekpct=100,xfersize=(4k,100)
 rd=rd1,wd=wd1_*,iorate=max,elapsed=1h,interval=15,forthreads=16
 ```
 
-Một số thông số cần lưu ý:
+**Một số thông số cần lưu ý:**
 
 `data_errors=50000000`: số error cho phép xảy ra (nếu quá số lượng này sẽ ngắt script)
 
