@@ -1,8 +1,11 @@
 # Hướng dẫn sử dụng công cụ đo hiệu năng ổ cứng VDBench
-Đây là công cụ do Oracle phát triển, có cả phiên bản cho Linux và Windows
+
+*Chú ý:*
+ - Đây là công cụ do Oracle phát triển, có cả phiên bản cho Linux và Windows
+ - Hướng dẫn sau thực hiện trên máy ảo Ubuntu14.04, kernel 3.13.0-32-generic
 
 ## 1. Cài đặt
-Cài đặt môi trường java 7 jdk
+Cài đặt môi trường java 7 jdk trên máy cần test
 ```
 apt-get install openjdk-7-jre -y
 ```
