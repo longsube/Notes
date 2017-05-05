@@ -27,7 +27,6 @@ Kết quả:
 +----+------------+-------------------+-------+----------+
 | 5  | smartcloud | -                 |       |          |
 +----+------------+-------------------+-------+----------+
-
 ```
 
 ## 3. Thêm các compute node vào các Host aggregate, bài lab này chỉ có 2 node compute, do đó mỗi nhóm sẽ chỉ dùng 1 node compute
@@ -50,7 +49,6 @@ Kết quả:
 +----+------------+-------------------+--------------------+-------------------+
 | 5  | smartcloud | -                 | 'compute2'         |  	               |
 +----+------------+-------------------+--------------------+-------------------+
-
 ```
 
 ## 4. Đặt các 'tag' metadata cho từng Host aggregate
@@ -80,8 +78,6 @@ Kết quả:
 ```
 root@controller1:~# nova flavor-create --is-public true mycloudvnn.small 100 1024 10 1
 root@controller1:~# nova flavor-create --is-public true smartcloud.small 101 1024 10 1
-
-
 ```
 
 Kết quả:
@@ -105,7 +101,6 @@ Kết quả:
 ```
 root@controller1:~# nova flavor-key mycloudvnn.small set mycloudvnn=true
 root@controller1:~# nova flavor-key smartcloud.small set smartcloud=true
-
 ```
  
 ## 7. Kiểm tra lại thông tin của flavor
@@ -150,7 +145,6 @@ Kết quả:
 | swap                       |                        |
 | vcpus                      | 1                      |
 +----------------------------+------------------------+
-
 ```
 
 ## 8. Mặc định, nova scheduler không hỗ trợ filter trên `extre_specs` của flavor hay image. Do đó cần bổ sung các filter cho nova scheduler trên Controller node.
