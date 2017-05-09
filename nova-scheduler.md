@@ -97,7 +97,7 @@ Như vậy tổng weight trên 1 host như sau:
 %RAM trống * 1.0 + %CPU trống * 1.0 + số lượng máy ảo * 1.0 + số lượng IO * 2.0 + số lượng máy ảo soft-affinity * 1.0 + số lượng máy ảo soft-anti-affinity * 1.0 + (cpu.user.percent * 1.0 + cpu.idle.time * -1.0) * 1.0
 ```
 
-Host nào có weight lớn nhất sẽ dược đặt độ ưu tiên cao nhất. Mặc định, scheduler lựa chọn host có weight lớn nhất. Nova cung cấp thêm lựa chọn là 'scheduler_host_subset_size' (giá trị là string), cho phép định nghĩa một nhóm số lượng các host có weight lớn nhất, sau đó scheduler lựa chọn ngẫu nhiên 1 host trong nhóm đó để tạo máy ảo. Default 'scheduler_host_subset_size=1'.
+Host nào có weight lớn nhất sẽ dược đặt độ ưu tiên cao nhất. Mặc định, scheduler lựa chọn host có weight lớn nhất. Nova cung cấp thêm lựa chọn là 'scheduler_host_subset_size' (giá trị là string), cho phép định nghĩa một nhóm số lượng các host có weight lớn nhất, sau đó scheduler lựa chọn ngẫu nhiên 1 host trong nhóm đó để tạo máy ảo. Default `scheduler_host_subset_size=1`.
 
 
 ![Weight 1](images/nova_scheduler/nova_scheduler_3.jpg)
