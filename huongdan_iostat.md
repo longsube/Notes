@@ -152,7 +152,7 @@ Kết quả:
 `root@controller1:~# vim /etc/nova/nova.conf`
 
 ```
-scheduler_default_filters=AggregateInstanceExtraSpecsFilter,RetryFilter, AvailabilityZoneFilter, RamFilter, DiskFilter, ComputeFilter, ComputeCapabilitiesFilter, ImagePropertiesFilter, ServerGroupAntiAffinityFilter, ServerGroupAffinityFilter
+scheduler_default_filters=AggregateInstanceExtraSpecsFilter,RetryFilter,AvailabilityZoneFilter,RamFilter,ComputeFilter,ComputeCapabilitiesFilter,ImagePropertiesFilter,ServerGroupAntiAffinityFilter,ServerGroupAffinityFilter
 ```
 
 ## 9. Khởi động lại nova-scheduler trên Controller node
