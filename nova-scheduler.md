@@ -7,10 +7,14 @@ Nova sử dụng `nova-scheduler` để thực hiện việc điều phối các
 Nova scheduler được cấu hình với một số thông số mặc định sau (nằm trong file `/etc/nova/nova.conf`):
 
 ```
+[DEFAULT]
+...
+# scheduler cache danh sách các host khả dụng trong 60 giây
 scheduler_driver_task_period = 60
 scheduler_driver = nova.scheduler.filter_scheduler.FilterScheduler
 scheduler_available_filters = nova.scheduler.filters.all_filters
 scheduler_default_filters = RetryFilter, AvailabilityZoneFilter, RamFilter, DiskFilter, ComputeFilter, ComputeCapabilitiesFilter, ImagePropertiesFilter, ServerGroupAntiAffinityFilter, ServerGroupAffinityFilter
+...
 ```
 
 ## 1. Filter Driver
