@@ -19,9 +19,9 @@ Thư mục chứa filter driver được đặt ở `/usr/lib/python2.7/dist-pac
 ![Drivers directory](images/nova_scheduler/nova_scheduler_1.jpg)
 
 Có thể lựa chọn các driver sau:
- - CachingScheduler
- - ChanceScheduler
- - FilterScheduler
+ - CachingScheduler: 
+ - ChanceScheduler: lựa chọn ngẫu nhiên các host
+ - FilterScheduler: lựa chọn host bằng cơ chế filter và weight
 
 ## 2. Filters
 Khi filter driver nhận được yêu cầu tạo máy ảo, nó sẽ áp vào các bộ lọc(filter) để xác định các host nào thích hợp. Các host sau khi được lọc bởi filter sẽ thông qua weight để xác định chính xác host sẽ tạo máy ảo.
