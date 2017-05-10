@@ -113,10 +113,6 @@ Tham khảo:
 
 [1] - https://docs.openstack.org/mitaka/config-reference/compute/scheduler.html
 
-[2] - http://egonzalez.org/openstack-segregation-with-availability-zones-and-host-aggregates/
+[2] - https://www.amazon.com/Production-Ready-OpenStack-Successful-Environments-ebook/dp/B013QA82WI
 
-[3] - https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/4/html/Configuration_Reference_Guide/host-aggregates.html
-
-[4] - https://www.amazon.com/Production-Ready-OpenStack-Successful-Environments-ebook/dp/B013QA82WI
-
-[5] - http://williamherry.blogspot.com/2012/05/openstack-nova-scheduler-and-its.html
+[3] - http://williamherry.blogspot.com/2012/05/openstack-nova-scheduler-and-its.html
