@@ -3,7 +3,7 @@
  - Hướng dẫn sau thực hiện trên phiên bản OpenStack Mitaka
 
 ## 1. Giới thiệu về Nova Scheduler
-Nova sử dụng `nova-scheduler` để thực hiện việc điều phối các yêu cầu tạo máy ảo. `nova-scheduler` xác định VM sẽ được tạo trên host vật lý nào (Host là các vật lý mà trên đó chạy service `nova-compute`).
+Nova sử dụng `nova-scheduler` để thực hiện việc điều phối các yêu cầu tạo máy ảo. `nova-scheduler` xác định VM sẽ được tạo trên host vật lý nào (Host là các node vật lý mà trên đó chạy service `nova-compute`).
 Nova scheduler được cấu hình với một số thông số mặc định sau (nằm trong file `/etc/nova/nova.conf`):
 
 ```
@@ -18,6 +18,9 @@ scheduler_default_filters = RetryFilter, AvailabilityZoneFilter, RamFilter, Disk
 ```
 
 ## 1. Filter Driver
+
+![Nova scheduler](images/nova_scheduler/nova_scheduler_5.jpg)
+
 Nova scheduler cấu hình mặc định sử dụng `FilterScheduler` driver. Driver này sử dụng cơ chế filter và weight để lựa chọn máy ảo sẽ được tạo ở đâu.
 Thư mục chứa filter driver được đặt ở `/usr/lib/python2.7/dist-packages/nova/scheduler`
 ![Drivers directory](images/nova_scheduler/nova_scheduler_1.jpg)
@@ -41,20 +44,20 @@ Các chỉ số được sử dụng để tính toán weight trên từng host:
  - CPU: Phần trăm vCPU còn trống
  - Affinity: Số lượng máy ảo đang nằm trên các host
  - Các metric phụ gồm: (các metric này không phải mặc định, người dùng cần khai báo thêm trong trường 'metrics')
- 		CPU_FREQUENCY,
-        CPU_USER_TIME,
-        CPU_KERNEL_TIME,
-        CPU_IDLE_TIME,
-        CPU_IOWAIT_TIME,
-        CPU_USER_PERCENT,
-        CPU_KERNEL_PERCENT,
-        CPU_IDLE_PERCENT,
-        CPU_IOWAIT_PERCENT,
-        CPU_PERCENT,
+	- CPU_FREQUENCY
+	- CPU_USER_TIME
+	- CPU_KERNEL_TIME
+	- CPU_IDLE_TIME
+	- CPU_IOWAIT_TIME
+	- CPU_USER_PERCENT
+	- CPU_KERNEL_PERCENT
+	- CPU_IDLE_PERCENT
+	- CPU_IOWAIT_PERCENT
+	- CPU_PERCENT
 
-Nova scheduler tính toán weight bằng cách nhân các tài nguyên trên với 1 hệ số  "multiplier".
+Nova scheduler tính toán weight bằng cách nhân các tài nguyên trên với 1 hệ số *multiplier*.
 
-Hệ số multiplier được định nghĩa trong file `/etc/nova/nova.conf` như sau:
+Hệ số multiplier được khai báo trong file `/etc/nova/nova.conf` như sau:
 
 ```
 [DEFAULT]
