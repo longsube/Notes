@@ -25,9 +25,9 @@ Nova scheduler cấu hình mặc định sử dụng `FilterScheduler` driver. D
 Thư mục chứa filter driver được đặt ở `/usr/lib/python2.7/dist-packages/nova/scheduler`
 ![Drivers directory](images/nova_scheduler/nova_scheduler_1.jpg)
 
-Có thể lựa chọn các driver sau:
+Có thể lựa chọn các Filter driver sau:
  - CachingScheduler: 
- - ChanceScheduler: lựa chọn ngẫu nhiên các host
+ - ChanceScheduler: lựa chọn ngẫu nhiên các host mà không cần thông qua filter hay weight
  - FilterScheduler: lựa chọn host bằng cơ chế filter và weight
 
 ## 2. Filters
@@ -39,11 +39,13 @@ Thư mục chứa các filter được đặt ở `/usr/lib/python2.7/dist-packa
 Sau khi lọc ra các host thích hợp cho việc tạo máy ảo, Nova scheduler sử dụng cơ chế weight để xác định host nào phù hợp nhất. Weight được tính toán trên mỗi host khi có 1 yêu cầu điều độ máy ảo. Scheduler tính toán weight của host dựa trên việc sử dụng tài nguyên trên host đó. 
 
 Các chỉ số được sử dụng để tính toán weight trên từng host:
+Các metric mặc định:
  - RAM: Phần trăm RAM còn trống
  - IO: Số lượng request đang được tải (build, resize, snapshot, migrate, rescue)
  - CPU: Phần trăm vCPU còn trống
  - Affinity: Số lượng máy ảo đang nằm trên các host
- - Các metric phụ gồm: (các metric này không phải mặc định, người dùng cần khai báo thêm trong trường `metrics`)
+
+Các metric phụ gồm: (các metric này không phải mặc định, người dùng cần khai báo thêm trong trường `metrics`)
 	- CPU_FREQUENCY
 	- CPU_USER_TIME
 	- CPU_KERNEL_TIME
@@ -68,9 +70,9 @@ scheduler_weight_classes = nova.scheduler.weights.all_weighers
 ram_weight_multiplier = 1.0
 # Hệ số cho IO
 io_ops_weight_multiplier = 2.0
-# Hệ số cho affinity
+# Hệ số cho soft affinity (p)
 soft_affinity_weight_multiplier = 1.0
-# Hệ số cho anti-affinity
+# Hệ số cho soft-anti-affinity
 soft_anti_affinity_weight_multiplier = 1.0
 # CPU mặc định là 1.0
 ...
@@ -97,7 +99,7 @@ weight_of_unavailable = -10000.0
 
 Như vậy tổng weight trên 1 host như sau:
 ```
-%RAM trống * 1.0 + %CPU trống * 1.0 + số lượng máy ảo * 1.0 + số lượng IO * 2.0 + số lượng máy ảo soft-affinity * 1.0 + số lượng máy ảo soft-anti-affinity * 1.0 + (cpu.user.percent * 1.0 + cpu.idle.time * -1.0) * 1.0
+%RAM trống * 1.0 + %CPU trống * 1.0 + số lượng IO * 2.0 + số lượng máy ảo soft-affinity * 1.0 + số lượng máy ảo soft-anti-affinity * 1.0 + (cpu.user.percent * 1.0 + cpu.idle.time * -1.0) * 1.0
 ```
 
 Host nào có weight lớn nhất sẽ dược đặt độ ưu tiên cao nhất. Mặc định, scheduler lựa chọn host có weight lớn nhất. Nova cung cấp thêm lựa chọn là **scheduler_host_subset_size** (giá trị là int), cho phép định nghĩa một nhóm số lượng các host có weight lớn nhất, sau đó scheduler lựa chọn ngẫu nhiên 1 host trong nhóm đó để tạo máy ảo. Default `scheduler_host_subset_size=1`.
@@ -116,3 +118,7 @@ Tham khảo:
 [2] - https://www.amazon.com/Production-Ready-OpenStack-Successful-Environments-ebook/dp/B013QA82WI
 
 [3] - http://williamherry.blogspot.com/2012/05/openstack-nova-scheduler-and-its.html
+
+[4] - https://specs.openstack.org/openstack/nova-specs/specs/kilo/approved/soft-affinity-for-server-group.html
+
+[5] - https://raymii.org/s/articles/Openstack_Affinity_Groups-make-sure-instances-are-on-the-same-or-a-different-hypervisor-host.html
