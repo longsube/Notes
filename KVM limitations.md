@@ -43,7 +43,12 @@ Bảng sau mô tả các giới hạn về phần cứng cho Host vật lý (vì
 
 ## 3. Giới hạn về hiệu năng
 
-Bảng sau so sánh hiệu năng của các hình thức ảo hóa với hiệu năng khi chạy trên môi trường không ảo hóa. (tính bằng %)
+Ta có 3 hình thức ảo hóa device khi sử dụng QEMU-KVM:
+ - Full-virtualized
+ - Para-virtualized
+ - Host Past-through
+
+Bảng sau so sánh hiệu năng của các hình thức ảo hóa với hiệu năng khi chạy trên môi trường vật lý không ảo hóa. (tính bằng %)
 
 ```
 | Category                                                           | Fully Virtualized                  | Paravirtualized  | Host Pass-through                                                                          |
