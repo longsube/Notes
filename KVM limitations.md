@@ -20,8 +20,14 @@ Việc ảo hóa máy ảo sử dụng KVM tồn tại một số các giới h�
 Bảng sau mô tả các giới hạn về phần cứng ảo hóa cho máy ảo
 
 
-
-
+```
+|                                                       | Red Hat Enterprise Linux 5 Server with KVM | Red Hat Enterprise Linux 6 Server with KVM | Red Hat Enterprise Linux 7 Server with KVM |
+|-------------------------------------------------------|--------------------------------------------|--------------------------------------------|--------------------------------------------|
+| Maximum number of concurrently running virtual guests | 41                                         | 41                                         | 41                                         |
+| Maximum number of virtual CPUs in virtualized guest   | 16                                         | 2402                                       | 2402                                       |
+| Maximum memory in virtualized guest                   | 512 GB3                                    | 4000 GB3,4                                 | 4000 GB3,4                                 |
+| Minimum memory in virtualized guest                   | 512 MB5                                    | 512 MB5                                    | 512 MB                                     |
+```
 
 
 Tham khảo:
