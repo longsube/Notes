@@ -36,7 +36,7 @@ Bảng sau mô tả các giới hạn về phần cứng cho Host vật lý (vì
 ```
 |                                                              | RHEL 5 for Unlimited Guests      | RHEL 6 for Unlimited Guests       | RHEL 7 for Unlimited Guests       | SUSE Linux Enterprise Server 11 SP4 |
 |--------------------------------------------------------------|----------------------------------|-----------------------------------|-----------------------------------|-------------------------------------|
-| Lượng logical CPU lớn nhất cho host vật lý                   | 32bit: 160 CPUs, 64bit: 255 CPUs | 32bit: 384 CPUs, 64bit: 4096 CPUs | 32bit: 384 CPUs, 64bit: 5120 CPUs | 4096 CPUs                               |
+| Lượng logical CPU lớn nhất cho host vật lý                   | 32bit: 160 CPUs, 64bit: 255 CPUs | 32bit: 384 CPUs, 64bit: 4096 CPUs | 32bit: 384 CPUs, 64bit: 5120 CPUs | 4096 CPUs                           |
 | Lượng RAM lớn nhất cho host vật lý                           | 32bit: 1 TB, 64bit: 1 TB         | 32bit: 12 TB, 64bit: 64 TB        | 32bit: 12 TB, 64bit: 64 TB        | 16 TB                               |
 | Lượng block device lớn nhất  ("sd" devices)  cho host vật lý | 1,024                            | 8,192                             | 10,000                            | chưa có thông tin                   |
 ```
