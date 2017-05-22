@@ -28,7 +28,7 @@ Bảng sau mô tả các giới hạn về phần cứng ảo hóa cho máy ảo
 | Lượng RAM lớn nhất có thể gán cho máy ảo                                | 512 GB                      | 4000 GB                     | 4000 GB                     | 4000 GB                                                       |
 | Lượng RAM nhỏ nhất có thể gán cho máy ảo                                | 512 MB                      | 512 MB                      | 512 MB                      | chưa có thông tin                                             |
 | Lượng NIC lớn nhất có thể gán cho máy ảo  (sử dụng`virtio-net`)         | 28                          | 28                          | 28                          | 8                                                             |
-| Lượng Block device lớn nhất có thể gán cho máy ảo (sử dụng`virtio-blk`) | 28                          | 28                          | 28                          | 20                                                            |             |
+| Lượng Block device lớn nhất có thể gán cho máy ảo (sử dụng`virtio-blk`) | 28                          | 28                          | 28                          | 20                                                            |
 ```
 
 Bảng sau mô tả các giới hạn về phần cứng cho Host vật lý (vì KVM là hypervisor trên Linux Kernel, do đó các giới hạn về phần cứng của KVm thực chất là các giới hạn của Linux Kernel)
@@ -43,7 +43,7 @@ Bảng sau mô tả các giới hạn về phần cứng cho Host vật lý (vì
 
 ## 3. Giới hạn về hiệu năng
 
-Ta có 3 hình thức ảo hóa device khi sử dụng QEMU-KVM:
+Ta có 3 hình thức ảo hóa devices khi sử dụng QEMU-KVM:
  - Full-virtualized
  - Para-virtualized
  - Host Past-through
