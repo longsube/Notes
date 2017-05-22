@@ -21,12 +21,14 @@ Bảng sau mô tả các giới hạn về phần cứng ảo hóa cho máy ảo
 
 
 ```
-|                                                       | Red Hat Enterprise Linux 5 Server with KVM | Red Hat Enterprise Linux 6 Server with KVM | Red Hat Enterprise Linux 7 Server with KVM |
-|-------------------------------------------------------|--------------------------------------------|--------------------------------------------|--------------------------------------------|
-| Maximum number of concurrently running virtual guests | 41                                         | 41                                         | 41                                         |
-| Maximum number of virtual CPUs in virtualized guest   | 16                                         | 2402                                       | 2402                                       |
-| Maximum memory in virtualized guest                   | 512 GB3                                    | 4000 GB3,4                                 | 4000 GB3,4                                 |
-| Minimum memory in virtualized guest                   | 512 MB5                                    | 512 MB5                                    | 512 MB                                     |
+| alo                                                                     | RHEL 5 for Unlimited Guests | RHEL 6 for Unlimited Guests | RHEL 7 for Unlimited Guests | SUSE Linux Enterprise Server 11 SP4                           |
+|-------------------------------------------------------------------------|-----------------------------|-----------------------------|-----------------------------|---------------------------------------------------------------|
+| Tổng số máy ảo cho phép chạy đồng thời                                  | Không giới hạn              | Không giới hạn              | Không giới hạn              | Tổng số vCPU không vượt quá 8 lần số CPU core của Host vật lý |
+| Lượng vCPU lớn nhất có thể gán cho máy ảo                               | 16                          | 240                         | 240                         | 256                                                           |
+| Lượng RAM lớn nhất có thể gán cho máy ảo                                | 512 GB                      | 4000 GB                     | 4000 GB                     | 4000 GB                                                       |
+| Lượng RAM nhỏ nhất có thể gán cho máy ảo                                | 512 MB                      | 512 MB                      | 512 MB                      | chưa có thông tin                                             |
+| Lượng NIC lớn nhất có thể gán cho máy ảo  (sử dụng`virtio-net`)         | 28                          | 28                          | 28                          | 8                                                             |
+| Lượng Block device lớn nhất có thể gán cho máy ảo (sử dụng`virtio-blk`) | 28                          | 28                          | 28                          | 20                                                            |             |
 ```
 
 
