@@ -43,7 +43,7 @@ Bảng sau mô tả các giới hạn về phần cứng cho Host vật lý (vì
 
 ## 3. Giới hạn về hiệu năng
 
-Bảng sau so sánh hiệu năng của các hình thức ảo hóa với hiệu năng của cùng workload khi chạy trên môi trường không ảo hóa.
+Bảng sau so sánh hiệu năng của các hình thức ảo hóa với hiệu năng khi chạy trên môi trường không ảo hóa. (tính bằng %)
 
 ```
 | Category                                                           | Fully Virtualized                  | Paravirtualized  | Host Pass-through                                                                          |
