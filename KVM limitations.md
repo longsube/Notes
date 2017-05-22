@@ -12,7 +12,7 @@ Việc ảo hóa máy ảo sử dụng KVM tồn tại một số các giới h�
 
  - MAC address: nếu NIC máy ảo không được gán địa chỉ MAC, một địa chỉ mặc định sẽ được gán, điều này có thể gây nên lỗi mạng.
 
- - Live migration: tính năng này chỉ hoạt động với điều kiện các host có cùng các CPU feature. 
+ - Live migration: tính năng này chỉ hoạt động với điều kiện các host có cùng các CPU feature. Model CPU duy nhất được hỗ trợ migration là `cpu qemu64` (mặc định), đây là model không có các tính năng add-on đặc biệt. Thiết bị lưu trữ của máy ảo phải được chia sẻ trên cả 2 host vật lý.
 
  - User permission: Các công cụ quản lý. VD: virsh, virt-install phải xác thực với `libvirt`. Để thực hiện câu lệnh `qemu-kvm`, user phải nằm trong group `kvm`.
 
@@ -21,7 +21,7 @@ Bảng sau mô tả các giới hạn về phần cứng ảo hóa cho máy ảo
 
 
 ```
-| alo                                                                     | RHEL 5 for Unlimited Guests | RHEL 6 for Unlimited Guests | RHEL 7 for Unlimited Guests | SUSE Linux Enterprise Server 11 SP4                           |
+|                                                                         | RHEL 5 for Unlimited Guests | RHEL 6 for Unlimited Guests | RHEL 7 for Unlimited Guests | SUSE Linux Enterprise Server 11 SP4                           |
 |-------------------------------------------------------------------------|-----------------------------|-----------------------------|-----------------------------|---------------------------------------------------------------|
 | Tổng số máy ảo cho phép chạy đồng thời                                  | Không giới hạn              | Không giới hạn              | Không giới hạn              | Tổng số vCPU không vượt quá 8 lần số CPU core của Host vật lý |
 | Lượng vCPU lớn nhất có thể gán cho máy ảo                               | 16                          | 240                         | 240                         | 256                                                           |
@@ -31,6 +31,30 @@ Bảng sau mô tả các giới hạn về phần cứng ảo hóa cho máy ảo
 | Lượng Block device lớn nhất có thể gán cho máy ảo (sử dụng`virtio-blk`) | 28                          | 28                          | 28                          | 20                                                            |             |
 ```
 
+Bảng sau mô tả các giới hạn về phần cứng cho Host vật lý (vì KVM là hypervisor trên Linux Kernel, do đó các giới hạn về phần cứng của KVm thực chất là các giới hạn của Linux Kernel)
+
+```
+|                                                              | RHEL 5 for Unlimited Guests      | RHEL 6 for Unlimited Guests       | RHEL 7 for Unlimited Guests       | SUSE Linux Enterprise Server 11 SP4 |
+|--------------------------------------------------------------|----------------------------------|-----------------------------------|-----------------------------------|-------------------------------------|
+| Lượng logical CPU lớn nhất cho host vật lý                   | 32bit: 160 CPUs, 64bit: 255 CPUs | 32bit: 384 CPUs, 64bit: 4096 CPUs | 32bit: 384 CPUs, 64bit: 5120 CPUs | 4096 CPUs                               |
+| Lượng RAM lớn nhất cho host vật lý                           | 32bit: 1 TB, 64bit: 1 TB         | 32bit: 12 TB, 64bit: 64 TB        | 32bit: 12 TB, 64bit: 64 TB        | 16 TB                               |
+| Lượng block device lớn nhất  ("sd" devices)  cho host vật lý | 1,024                            | 8,192                             | 10,000                            | chưa có thông tin                   |
+```
+
+## 3. Giới hạn về hiệu năng
+
+Bảng sau so sánh hiệu năng của các hình thức ảo hóa với hiệu năng của cùng workload khi chạy trên môi trường không ảo hóa.
+
+```
+| Category                                                           | Fully Virtualized                  | Paravirtualized  | Host Pass-through                                                                          |
+|--------------------------------------------------------------------|------------------------------------|------------------|--------------------------------------------------------------------------------------------|
+| CPU, MMU                                                           | 7%                                 | not applicable   | 97% (Hardware Virtualization with Extended Page Tables (Intel) or Nested Page Tables (AMD) |
+|                                                                    |                                    |                  | 85% (Hardware Virtualization with shadow page tables)                                      |
+| Network I/O (1GB LAN)                                              | 60% (e1000 emulated NIC)           | 75% (virtio-net) | 95%                                                                                        |
+| Disk I/O                                                           | 40% (IDE emulation)                | 85% (virtio-blk) | 95%                                                                                        |
+| Graphics (non-accelerated)                                         | 50% (VGA or Cirrus)                | not applicable   | not applicable                                                                             |
+| Time accuracy (worst case, using recommended settings without NTP) | 95% - 105% (where 100% = accurate) | 100% (kvm-clock) | not applicable                                                                             |
+```
 
 Tham khảo:
 
