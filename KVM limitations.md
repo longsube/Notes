@@ -17,7 +17,7 @@ Việc ảo hóa máy ảo sử dụng KVM tồn tại một số các giới h�
  - User permission: Các công cụ quản lý. VD: virsh, virt-install phải xác thực với `libvirt`. Để thực hiện câu lệnh `qemu-kvm`, user phải nằm trong group `kvm`.
 
 ## 2. Giới hạn về phần cứng 
-Bảng sau mô tả các giới hạn về phần cứng ảo hóa cho máy ảo
+- Bảng sau mô tả các giới hạn về phần cứng ảo hóa cho máy ảo
 
 
 ```
@@ -31,7 +31,7 @@ Bảng sau mô tả các giới hạn về phần cứng ảo hóa cho máy ảo
 | Lượng Block device lớn nhất có thể gán cho máy ảo (sử dụng`virtio-blk`) | 28                          | 28                          | 28                          | 20                                                            |
 ```
 
-Bảng sau mô tả các giới hạn về phần cứng cho Host vật lý (vì KVM là hypervisor trên Linux Kernel, do đó các giới hạn về phần cứng của KVm thực chất là các giới hạn của Linux Kernel)
+- Bảng sau mô tả các giới hạn về phần cứng cho Host vật lý (vì KVM là hypervisor trên Linux Kernel, do đó các giới hạn về phần cứng của KVm thực chất là các giới hạn của Linux Kernel)
 
 ```
 |                                                              | RHEL 5 for Unlimited Guests      | RHEL 6 for Unlimited Guests       | RHEL 7 for Unlimited Guests       | SUSE Linux Enterprise Server 11 SP4 |
