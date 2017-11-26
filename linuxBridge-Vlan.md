@@ -99,4 +99,5 @@ br21		8000.44a8421ea02c	no		eno3.21
 Tham khảo:
 
 [1] - http://net.doit.wisc.edu/~dwcarder/captivator/linux_trunking_bridging.txt
+
 [2] - http://blog.frosty-geek.net/2011/02/ubuntu-tagged-vlan-interfaces-and.html

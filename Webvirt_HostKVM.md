@@ -62,11 +62,12 @@ service libvirt-bin restart
 ```
 
 ## Trên Webvirt, connect tới KVM Host
-webvirt_1.jpg
+
 ![Webvirt](images/KVM/webvirt_1.jpg)
 
 
 Tham khảo:
 
 [1] - https://www.server-world.info/en/note?os=Ubuntu_16.04&p=kvm&f=1
+
 [2] - https://github.com/retspen/webvirtmgr/wiki/Setup-Host-Server
