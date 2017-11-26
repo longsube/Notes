@@ -45,7 +45,7 @@ Ta thấy phân vùng cho swap có kích thước 100MB, ta sẽ mở rộng ph�
 swapoff -a
 ```
 
-## Xóa phân vùng swap cũ và tạo phân vùng mới
+## Xóa phân vùng swap cũ và tạo phân vùng mới, chú ý Hex code Swap của Ubuntu 1604 là 19, ở các bản cũ hơn là 82
 ```sh
 fdisk /dev/sda
 
@@ -95,7 +95,7 @@ LABEL=SWAP-sda2, UUID=37b8bdb3-d205-4726-875f-93210f62105c
 ```sh
 ls -l /dev/disk/by-uuid/
 ```
-Kết quả:
+Kết quả, phân vùng swap là sda2
 ```sh
 total 0
 lrwxrwxrwx 1 root root 10 Nov 26 01:37 37b8bdb3-d205-4726-875f-93210f62105c -> ../../sda2
@@ -205,7 +205,9 @@ sr0     11:0    1  1024M  0 rom
 ```
 
 Tham khảo:
+
 [1] - http://www2.fugitol.com/2012/04/linux-resizing-boot-partition.html
+
 [2] - https://liquidat.wordpress.com/2007/10/15/short-tip-get-uuid-of-hard-disks/
 
 
