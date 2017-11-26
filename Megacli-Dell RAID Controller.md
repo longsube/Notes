@@ -47,3 +47,5 @@ Tham khảo:
 https://artipc10.vub.ac.be/wordpress/2011/09/12/megacli-useful-commands/
 
 http://hwraid.le-vert.net/wiki/LSIMegaRAIDSAS
+
+http://hwraid.le-vert.net/wiki/DebianPackages
