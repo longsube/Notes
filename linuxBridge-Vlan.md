@@ -1,4 +1,9 @@
 # Hướng dẫn cài đặt Linux bridge để tạo nhiều Vlan (Subinterface)
+Hướng dẫn sau sẽ thực hiện việc add 2 VLAN 20,21 vào dường trunk (kết nối tới NIC eno3 trên host vật lý), các VLAN này sử dụng để làm dải Provider cho các máy ảo.
+
+Yêu cầu:
+ - Các đường kết nối trunk như mô hình
+ - Trên SW đã cấu hình các VLAN
 
 	 ------------     ------------
      |		    |	  |			 | 
@@ -28,6 +33,7 @@
         |         SV1         |
         -----------------------
 
+Thực hiện trên Host vật lý SV1
 
 ## Update package
 ```sh
@@ -44,7 +50,7 @@ apt-get -y virtinst bridge-utils
 modprobe 8021q
 ```
 
-# Cấu hình Vlan 20, 21 cho port eno3
+## Add Vlan 20, 21 cho port eno3
 ```sh
 /sbin/vconfig add eno3 20
 /sbin/vconfig add eno3 21
