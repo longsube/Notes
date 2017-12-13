@@ -21,7 +21,7 @@ Bài lab thành công khi máy remote quay VPN thành công, nhận IP của d�
  
 
 ## Thực hiện trên host OpenVPN
-	- Cài đặt OpenVPN và Easy-RSA
+  - Cài đặt OpenVPN và Easy-RSA
 	```sh
 	apt-get update
 	apt-get install openvpn easy-rsa –y
@@ -270,7 +270,7 @@ Bài lab thành công khi máy remote quay VPN thành công, nhận IP của d�
        valid_lft forever preferred_lft forever
     ```
 
-    - Tạo certificate và key cho Client (ở đây lấy tên là client1)
+  - Tạo certificate và key cho Client (ở đây lấy tên là client1)
 	```sh
 	cd /etc/openvpn/easy-rsa/
 	source vars
@@ -278,12 +278,12 @@ Bài lab thành công khi máy remote quay VPN thành công, nhận IP của d�
 	```
 	Enter liên tục để lấy các giá trị mặc định
 
-	- Copy các file cấu hình, certificate và key cho client vừa tạo ra về các máy client
-	```sh
-	/etc/openvpn/ca.crt
-	/etc/openvpn/easy-rsa/keys/client1.crt
-	/etc/openvpn/easy-rsa/keys/client1.key
-	```
+  - Copy các file cấu hình, certificate và key cho client vừa tạo ra về các máy client
+  ```sh
+  /etc/openvpn/ca.crt
+  /etc/openvpn/easy-rsa/keys/client1.crt
+  /etc/openvpn/easy-rsa/keys/client1.key
+  ```
 
 	
 ## Thực hiện trên host Controller của OpenStack
