@@ -163,8 +163,8 @@ Bài lab thành công khi máy remote quay VPN thành công, nhận IP của d�
 	Certificate is to be certified until May 29 06:49:49 2027 GMT (3650 days)
 	```
 
-	Khi gặp các thông báo sau, lựa chọn ‘y’
-	
+  Khi gặp các thông báo sau, lựa chọn ‘y’
+
 	```sh
 	Sign the certificate? [y/n]y
 	1 out of 1 certificate requests certified, commit? [y/n]y
