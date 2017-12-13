@@ -293,10 +293,9 @@ Bài lab thành công khi máy remote quay VPN thành công, nhận IP của d�
 	neutron port-list | grep 20.20.20.4
 	```
   Kết quả:
-
-	```sh
+	
 	| c8cc67a8-2090-4d25-8875-80dcd3f90985 |      | fa:16:3e:33:57:85 | {"subnet_id": "fc5ce69d-e32b-4200-a07c-25f74bf85595", "ip_address": "20.20.20.4"}    |
-	```
+	
 
   - Cho phép nhiều VLAN được đi qua port này
 	```sh
@@ -305,9 +304,8 @@ Bài lab thành công khi máy remote quay VPN thành công, nhận IP của d�
 
   Kết quả: 
 
-	```sh
 	Updated port: c8cc67a8-2090-4d25-8875-80dcd3f90985
-	```
+	
 
   - Kiểm tra thông tin port
 
@@ -316,8 +314,7 @@ Bài lab thành công khi máy remote quay VPN thành công, nhận IP của d�
 	```
 
   Kết quả:
-  
-	```sh
+	
 	+-----------------------+-----------------------------------------------------------------------------------+
 	| Field                 | Value                                                                             |
 	+-----------------------+-----------------------------------------------------------------------------------+
@@ -344,7 +341,7 @@ Bài lab thành công khi máy remote quay VPN thành công, nhận IP của d�
 	| tenant_id             | cc53359b83b0435397235399f144948a                                                  |
 	| updated_at            | 2017-12-13T03:29:28                                                               |
 	+-----------------------+-----------------------------------------------------------------------------------+
-	```
+	
 
 ## Thực hiện trên máy ảo Client
   - Add route cho dải mạng 10.8.3.0/24
