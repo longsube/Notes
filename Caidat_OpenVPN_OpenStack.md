@@ -120,7 +120,9 @@ Bài lab thành công khi máy remote quay VPN thành công, nhận IP của d�
 	```sh
 	./build-key-server lab
 	```
+
   Lựa chọn các giá trị mặc định.
+
 	```sh
 	Generating a 2048 bit RSA private key
 	.+++
@@ -257,6 +259,7 @@ Bài lab thành công khi máy remote quay VPN thành công, nhận IP của d�
  	```sh
  	ip a
  	```
+
    Kết quả xuất hiện TUN cho dải 10.8.2.0
  	```sh
  	tun0: <POINTOPOINT,MULTICAST,NOARP,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UNKNOWN group default qlen 100
@@ -353,7 +356,7 @@ Bài lab thành công khi máy remote quay VPN thành công, nhận IP của d�
   	mv /root/client1.crt /root/client1.key /root/ca.crt /etc/openvpn/lab
   	```
 
- 	- Tạo file cấu hình VPN `/etc/openvpn/client1.conf` cho Client1
+   - Tạo file cấu hình VPN `/etc/openvpn/client1.conf` cho Client1
 	```sh
 	client
 	dev tun
@@ -371,17 +374,17 @@ Bài lab thành công khi máy remote quay VPN thành công, nhận IP của d�
 	verb 3
 	```
 
-	- Thêm quyền thực thi cho `lab.conf`
+  - Thêm quyền thực thi cho `lab.conf`
 	```sh
 	chmod +x /etc/openvpn/lab.conf
 	```
 
-  	- Kết nối VPN
+  - Kết nối VPN
   	```sh
   	openvpn --config lab.conf
   	```
 
-  	- Kiểm tra bằng lệnh `ip a`, host đã nhận IP của Tunnel
+  - Kiểm tra bằng lệnh `ip a`, host đã nhận IP của Tunnel
   	```sh
   	tun1: <POINTOPOINT,MULTICAST,NOARP,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UNKNOWN group default qlen 100
     link/none 
@@ -389,7 +392,7 @@ Bài lab thành công khi máy remote quay VPN thành công, nhận IP của d�
        valid_lft forever preferred_lft forever
   	```
 
-  	- Kiểm tra ping vào dải mạng 20.20.20.0/24
+  - Kiểm tra ping vào dải mạng 20.20.20.0/24
   	```sh
   	ping 20.20.20.3
   	```
