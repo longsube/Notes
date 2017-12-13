@@ -293,6 +293,7 @@ Bài lab thành công khi máy remote quay VPN thành công, nhận IP của d�
 	neutron port-list | grep 20.20.20.4
 	```
   Kết quả:
+
 	```sh
 	| c8cc67a8-2090-4d25-8875-80dcd3f90985 |      | fa:16:3e:33:57:85 | {"subnet_id": "fc5ce69d-e32b-4200-a07c-25f74bf85595", "ip_address": "20.20.20.4"}    |
 	```
@@ -301,7 +302,9 @@ Bài lab thành công khi máy remote quay VPN thành công, nhận IP của d�
 	```sh
 	neutron port-update c8cc67a8-2090-4d25-8875-80dcd3f90985 --allowed-address-pairs list=true type=dict ip_address=0.0.0.0/0
 	```
+
   Kết quả: 
+  
 	```sh
 	Updated port: c8cc67a8-2090-4d25-8875-80dcd3f90985
 	```
