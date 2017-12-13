@@ -162,7 +162,9 @@ Bài lab thành công khi máy remote quay VPN thành công, nhận IP của d�
 	emailAddress          :IA5STRING:'mail@host.domain'
 	Certificate is to be certified until May 29 06:49:49 2027 GMT (3650 days)
 	```
+
 	Khi gặp các thông báo sau, lựa chọn ‘y’
+	
 	```sh
 	Sign the certificate? [y/n]y
 	1 out of 1 certificate requests certified, commit? [y/n]y
@@ -261,6 +263,7 @@ Bài lab thành công khi máy remote quay VPN thành công, nhận IP của d�
  	```
 
    Kết quả xuất hiện TUN cho dải 10.8.2.0
+
  	```sh
  	tun0: <POINTOPOINT,MULTICAST,NOARP,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UNKNOWN group default qlen 100
     link/none 
