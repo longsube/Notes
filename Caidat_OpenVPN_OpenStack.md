@@ -27,37 +27,37 @@ Bài lab thành công khi máy remote quay VPN thành công, nhận IP của d�
 	apt-get install openvpn easy-rsa –y
 	```
 
-	- Giải nén các file config mẫu vào thư mục /etc/openvpn
+  - Giải nén các file config mẫu vào thư mục /etc/openvpn
 	```sh
 	gunzip -c /usr/share/doc/openvpn/examples/sample-config-files/server.conf.gz > /etc/openvpn/server.conf
 	```
 
-	- Để forward gói tin giữa các dải mạng trong VPN Server, sửa file `/etc/sysctl.conf`. Thêm vào dòng cuối cùng của file
+  - Để forward gói tin giữa các dải mạng trong VPN Server, sửa file `/etc/sysctl.conf`. Thêm vào dòng cuối cùng của file
 	```sh
 	net.ipv4.ip_forward = 1
 	```
 
-	Save lại và chạy lệnh:
+  Save lại và chạy lệnh:
 	```sh
 	sysctl -p
 	```
 
-	Kết quả:
+  Kết quả:
 	```sh
 	net.ipv4.ip_forward = 1
 	```
 
-	- Copy các script vào thư mục /etc/openvpn
+  - Copy các script vào thư mục /etc/openvpn
 	```sh
 	cp -r /usr/share/easy-rsa/ /etc/openvpn
 	```
 
-	- Tạo thư mục chứa key
+  - Tạo thư mục chứa key
 	```sh
 	mkdir /etc/openvpn/easy-rsa/keys
 	```
 
-	- Sửa file `/etc/openvpn/easy-rsa/vars`. Thêm các cấu hình sau
+  - Sửa file `/etc/openvpn/easy-rsa/vars`. Thêm các cấu hình sau
 	```sh
 	#Khai báo kích thước key tương ứng với key size DH 
 	export KEY_SIZE=2048
@@ -76,12 +76,12 @@ Bài lab thành công khi máy remote quay VPN thành công, nhận IP của d�
 	export KEY_ALTNAMES="something"
 	```
 
-	- Tạo DH key
+  - Tạo DH key
 	```sh
 	openssl dhparam -out /etc/openvpn/dh2048.pem 2048
 	```
 
-	- Tạo CA key cho VPN Server
+  - Tạo CA key cho VPN Server
 	```sh
 	cd /etc/openvpn/easy-rsa
 	source vars
@@ -89,8 +89,8 @@ Bài lab thành công khi máy remote quay VPN thành công, nhận IP của d�
 	./build-ca
 	```
 
-	Enter liên tục để lấy các giá trị mặc định
-	Kết quả
+  Enter liên tục để lấy các giá trị mặc định
+  Kết quả
 
 	```sh
 	Generating a 2048 bit RSA private key
@@ -116,12 +116,11 @@ Bài lab thành công khi máy remote quay VPN thành công, nhận IP của d�
 	Email Address [mail@host.domain]:
 	```
 
-	- Tạo cert và key cho VPN Server, lấy tên là `lab
+  - Tạo cert và key cho VPN Server, lấy tên là `lab
 	```sh
 	./build-key-server lab
 	```
-	Lựa chọn các giá trị mặc định.
-
+  Lựa chọn các giá trị mặc định.
 	```sh
 	Generating a 2048 bit RSA private key
 	.+++
@@ -143,7 +142,6 @@ Bài lab thành công khi máy remote quay VPN thành công, nhận IP của d�
 	Common Name (eg, your name or your server's hostname) [lab]:
 	Name [EasyRSA]:
 	Email Address [mail@host.domain]:
-
 	Please enter the following 'extra' attributes
 	to be sent with your certificate request
 	A challenge password []:
@@ -162,25 +160,22 @@ Bài lab thành công khi máy remote quay VPN thành công, nhận IP của d�
 	emailAddress          :IA5STRING:'mail@host.domain'
 	Certificate is to be certified until May 29 06:49:49 2027 GMT (3650 days)
 	```
-
 	Khi gặp các thông báo sau, lựa chọn ‘y’
 	```sh
 	Sign the certificate? [y/n]y
 	1 out of 1 certificate requests certified, commit? [y/n]y
 	```
-
-	Nếu thành công, sẽ xuất hiện thông báo
+  Nếu thành công, sẽ xuất hiện thông báo
 	```sh
 	Write out database with 1 new entries
 	Data Base Updated
 	```
-
-	- Copy các file ca, crt và key ra thư mục /etc/openvpn
+  - Copy các file ca, crt và key ra thư mục /etc/openvpn
 	```sh
 	cp /etc/openvpn/easy-rsa/keys/{lab.crt,lab.key,ca.crt} /etc/openvpn
 	```
 
-	- Sửa file `/etc/openvpn/server.conf`. Thêm các cấu hình sau:
+  - Sửa file `/etc/openvpn/server.conf`. Thêm các cấu hình sau:
 	```sh
 	# Sủ dụng cơ chế tun để client kết nối tới VPN Server
 	dev tun
@@ -200,12 +195,12 @@ Bài lab thành công khi máy remote quay VPN thành công, nhận IP của d�
 	log-append  /var/log/openvpn.log
 	```
 
-	- Cài đặt Linux Bridge
+  - Cài đặt Linux Bridge
 	```sh
 	apt-get install bridge-utils -y
 	```
 
-	- Sửa file `/etc/network/interfaces` để gắn eth1 vào br0
+  - Sửa file `/etc/network/interfaces` để gắn eth1 vào br0
 	```sh
 	auto eth0
 	iface eth0 inet dhcp
@@ -226,43 +221,43 @@ Bài lab thành công khi máy remote quay VPN thành công, nhận IP của d�
 	post-up ip link set br0 address fa:16:3e:33:57:85
 	```
 
-	- Khởi động lại card mạng
+  - Khởi động lại card mạng
 	```sh
 	ifdown –a && ifup -a
 	```
 
-	- Add thêm rule vào iptables để các máy ảo trong hệ thống có thể ra Internet thông qua GW là máy ảo VPN
+  - Add thêm rule vào iptables để các máy ảo trong hệ thống có thể ra Internet thông qua GW là máy ảo VPN
 	```sh
 	iptables --table nat --append POSTROUTING --out-interface eth0 -j MASQUERADE
 	iptables --append FORWARD --in-interface br0 -j ACCEPT
 	```
 
-	- Cài đặt iptables-persistent
+  - Cài đặt iptables-persistent
 	```sh
 	apt-get install iptables-persistent -y
 	```
 
-	- Save các rule trên iptables vào iptables-persistent
+  - Save các rule trên iptables vào iptables-persistent
 	```sh
 	iptables-save > /etc/iptables/rules.v4
 	```
 
-	- Khởi động và kiểm tra trạng thái OpenVPN server
+  - Khởi động và kiểm tra trạng thái OpenVPN server
 	```sh
 	service openvpn start
 	service openvpn status
 	```
 
-	Nếu thành công, sẽ xuất hiện thông báo
+  Nếu thành công, sẽ xuất hiện thông báo
 	```sh
 	VPN 'server' is running
 	```
 
- 	- Kiểm tra card mạng của VPN server
+   - Kiểm tra card mạng của VPN server
  	```sh
  	ip a
  	```
- 	Kết quả xuất hiện TUN cho dải 10.8.2.0
+   Kết quả xuất hiện TUN cho dải 10.8.2.0
  	```sh
  	tun0: <POINTOPOINT,MULTICAST,NOARP,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UNKNOWN group default qlen 100
     link/none 
@@ -279,36 +274,36 @@ Bài lab thành công khi máy remote quay VPN thành công, nhận IP của d�
 	Enter liên tục để lấy các giá trị mặc định
 
   - Copy các file cấu hình, certificate và key cho client vừa tạo ra về các máy client
-  ```sh
-  /etc/openvpn/ca.crt
-  /etc/openvpn/easy-rsa/keys/client1.crt
-  /etc/openvpn/easy-rsa/keys/client1.key
-  ```
+	```sh
+	/etc/openvpn/ca.crt
+	/etc/openvpn/easy-rsa/keys/client1.crt
+	/etc/openvpn/easy-rsa/keys/client1.key
+	```
 
 	
 ## Thực hiện trên host Controller của OpenStack
   - Lấy thông tin id port của VM PFsense thưộc VLAN Private (IP: 40.40.40.2)
-  ```sh
-  neutron port-list | grep 20.20.20.4
-  ```
+	```sh
+	neutron port-list | grep 20.20.20.4
+	```
   Kết quả:
-  ```sh
-  | c8cc67a8-2090-4d25-8875-80dcd3f90985 |      | fa:16:3e:33:57:85 | {"subnet_id": "fc5ce69d-e32b-4200-a07c-25f74bf85595", "ip_address": "20.20.20.4"}    |
-  ```
+	```sh
+	| c8cc67a8-2090-4d25-8875-80dcd3f90985 |      | fa:16:3e:33:57:85 | {"subnet_id": "fc5ce69d-e32b-4200-a07c-25f74bf85595", "ip_address": "20.20.20.4"}    |
+	```
 
   - Cho phép nhiều VLAN được đi qua port này
-  ```sh
-  neutron port-update c8cc67a8-2090-4d25-8875-80dcd3f90985 --allowed-address-pairs list=true type=dict ip_address=0.0.0.0/0
-  ```
+	```sh
+	neutron port-update c8cc67a8-2090-4d25-8875-80dcd3f90985 --allowed-address-pairs list=true type=dict ip_address=0.0.0.0/0
+	```
   Kết quả: 
-  ```sh
-  Updated port: c8cc67a8-2090-4d25-8875-80dcd3f90985
-  ```
+	```sh
+	Updated port: c8cc67a8-2090-4d25-8875-80dcd3f90985
+	```
 
   - Kiểm tra thông tin port
-  ```sh
-  neutron port-show c8cc67a8-2090-4d25-8875-80dcd3f90985
-  ```
+	```sh
+	neutron port-show c8cc67a8-2090-4d25-8875-80dcd3f90985
+	```
   Kết quả:
   ```sh
 	+-----------------------+-----------------------------------------------------------------------------------+
