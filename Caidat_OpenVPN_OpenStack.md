@@ -8,11 +8,11 @@ Bài lab thành công khi máy remote quay VPN thành công, nhận IP của d�
 
 ## Mô hình 
 - Sử dụng mô hình dưới để cài đặt
-![img](../images/OpenVPN-OpenStackVM-TUN/image_1.jpg)
+![img](/images/OpenVPN-OpenStackVM-TUN/image_1.jpg)
 
 ## IP Planning
 - Phân hoạch IP cho các máy chủ trong mô hình trên
-![img](../images/OpenVPN-OpenStackVM-TUN/image_2.jpg)
+![img](/images/OpenVPN-OpenStackVM-TUN/image_2.jpg)
 
 ## Chuẩn bị và môi trường LAB
 - Máy remote: OS Ubunu 14.04
@@ -363,6 +363,7 @@ Bài lab thành công khi máy remote quay VPN thành công, nhận IP của d�
   	```
 
    - Tạo file cấu hình VPN `/etc/openvpn/client1.conf` cho Client1
+   
 	```sh
 	client
 	dev tun
