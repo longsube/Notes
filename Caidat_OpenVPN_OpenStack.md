@@ -342,6 +342,10 @@ Bài lab thành công khi máy remote quay VPN thành công, nhận IP của d�
 	| updated_at            | 2017-12-13T03:29:28                                                               |
 	+-----------------------+-----------------------------------------------------------------------------------+
 	
+ - Để gỡ allow address pair, dùng lệnh:
+ 	```sh
+ 	neutron port-update c8cc67a8-2090-4d25-8875-80dcd3f90985 --no-allowed-address-pairs
+ 	```
 
 ## Thực hiện trên máy ảo Client
   - Add route cho dải mạng 10.8.3.0/24
