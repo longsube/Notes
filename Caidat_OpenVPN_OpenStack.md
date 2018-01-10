@@ -347,6 +347,11 @@ Bài lab thành công khi máy remote quay VPN thành công, nhận IP của d�
  	neutron port-update c8cc67a8-2090-4d25-8875-80dcd3f90985 --no-allowed-address-pairs
  	```
 
+ - Dùng lệnh sau để mở port VPN trên Security group default (udp 1194)
+  ```sh
+  openstack security group rule create --dst-port 1194 --proto udp  default
+  ```
+
 ## Thực hiện trên máy ảo Client
   - Add route cho dải mạng 10.8.3.0/24
   ```sh
