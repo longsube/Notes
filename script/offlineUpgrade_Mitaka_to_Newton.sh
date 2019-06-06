@@ -1,37 +1,9 @@
-# Hướng dẫn upgrade Mitaka lên Newton
-
-Upgrade OS Ubuntu 14.04 lên 16.04
-Trươc khi upgrade, cần backup lại toàn bộ DB của OpenStack
-mkdir  /root/backup_mitaka
-mysqldump -uroot -p --all-databases > /root/backup_mitaka/dump.sql
-backup lại thư mục cấu hình của mysql
-cp -rp /etc/mysql /root/backup_mitaka
-
-Để giữ nguyên version của các package đang cài đặt, thực hiện theo các bước sau:
-Tao file /etc/apt/apt.conf.d/local với nội dung
-
-DPkg::options { "--force-confdef"; "--force-confnew"; }
-
-Chạy lệnh sau để upgrade
-do-release-upgrade -f DistUpgradeViewNonInteractive
-
-Thực hiện theo các hướng dẫn khi upgrade
-
-Sau khi upgrade xong, version cuar mysql se thay doi
-mysql --version
-mysql  Ver 15.1 Distrib 10.0.31-MariaDB, for debian-linux-gnu (x86_64) using readline 5.2
-
-copy lại file cấu hình của DB
-cp -p /root/backup_mitaka/mysql/conf.d/mysqld_openstack.cnf /etc/mysql/mariadb.conf.d/99-openstack.cnf
-service mysql restart
-
-
-
-
+#!/bin/bash -ex
+#
 
 Khai báo repo cho Newton
 apt-get install software-properties-common -y
-add-apt-repository cloud-archive:pike -y
+add-apt-repository cloud-archive:newton -y
 
 Gỡ các repo của mitaka
 cd /etc/apt/sources.list.d
@@ -47,14 +19,18 @@ cp -rp /etc/keystone /root/backup_mitaka/
 
 Để tránh lỗi Name duplicates previous WSGI daemon definition của apache khi có 2 tiến trình wsgi chung 1 name, gớ bổ cấu hình wsgi của mitaka
 cp /etc/apache2/sites-available/wsgi-keystone.conf /root/backup_mitaka
-rm /etc/apache2/sites-enabled/wsgi-keystone.conf
+mv /etc/apache2/sites-enabled/wsgi-keystone.conf /etc/apache2/sites-enabled/wsgi-keystone.conf.mitaka.bak
+
+
+Lưu lại các file cấu hình gốc của keystone:
+cp /etc/keystone/keystone.conf /root/backup_mitaka/keystone.conf.orig
+
 
 Stop service
 service apache2 stop
 apt-get -o Dpkg::Options::="--force-confold"  install --only-upgrade keystone
 
-Lưu lại các file cấu hình gốc của keystone:
-cp /etc/keystone/keystone.conf /etc/keystone/keystone.conf.orig
+
 cat /etc/keystone/keystone.conf.orig | egrep -v '^#|^$' > /etc/keystone/keystone.conf
 
 Mở file cấu hình keystone: vi /etc/keystone/keystone.conf
@@ -71,7 +47,7 @@ Cập nhật cấu vào trong database keystone:
 keystone-manage db_sync --expand
 keystone-manage db_sync --migrate
 
-su -s /bin/sh -c "keystone-manage db_sync" keystone
+#su -s /bin/sh -c "keystone-manage db_sync" keystone
 
 service apache2 start
 
@@ -104,9 +80,9 @@ root@controller:~# openstack endpoint list
 
 Upgrade Glance
 backup cấu hình
-cp -rp /etc/glance /root/backup_mitaka/
+cp -rp /etc/glance /root/backup_mitaka/glance
 
-mysqldump -u root -p --databases glance > /root/backup_mitaka/glance.sqlbak
+mysqldump -u root -p --databases glance > /root/backup_mitaka/glance/glance.sqlbak
 Stop service
 service glance-api stop
 service glance-registry stop
@@ -196,19 +172,22 @@ ii  python-glanceclient                 1:2.0.0-2ubuntu0.16.04.1                
 
 Upgrade Nova
 backup cấu hình
-cp -rp /etc/nova /root/backup_mitaka/
-mysqldump -u root -p --databases nova > /root/backup_mitaka/nova.sqlbak
+cp -rp /etc/nova /root/backup_mitaka/nova
+mysqldump -u root -p --databases nova > /root/backup_mitaka/nova/nova.sqlbak
 
 Tạo database nova_api:
 Truy cập database client:
 
 mysql -u root -pWelcome123
-Tạo 2 database nova_api và nova:
+Tạo  database nova_api:
 CREATE DATABASE nova_api;
-
+create database nova_cell0;
 
 GRANT ALL PRIVILEGES ON nova_api.* TO 'nova'@'localhost' IDENTIFIED BY 'Welcome123';
 GRANT ALL PRIVILEGES ON nova_api.* TO 'nova'@'%' IDENTIFIED BY 'Welcome123';
+ 
+GRANT ALL PRIVILEGES ON nova_cell0.* TO 'nova'@'%'  IDENTIFIED BY 'Welcome123';
+GRANT ALL PRIVILEGES ON nova_cell0.* TO 'nova'@'localhost'  IDENTIFIED BY 'Welcome123';
 
 EXIT;
 
@@ -290,7 +269,7 @@ su -s /bin/sh -c "nova-manage api_db sync" nova
 su -s /bin/sh -c "nova-manage cell_v2 map_cell0" nova
 
 Create the cell1 cell:
-su -s /bin/sh -c "nova-manage cell_v2 create_cell --name=cell1 --verbose" nova  
+su -s /bin/sh -c "nova-manage cell_v2 create_cell --name=cell1 --verbose" nova
 su -s /bin/sh -c "nova-manage cell_v2 map_cell0" nova
 
 Kết thúc cài đặt Nova
@@ -376,6 +355,12 @@ volume_driver = cinder.volume.drivers.lvm.LVMVolumeDriver
 volume_group = cinder-volumes
 iscsi_protocol = iscsi
 iscsi_helper = tgtadm
+
+Sửa file cinder/db/sqlalchemy/migrate_repo/versions/073_drop_available_versions_and_iscsi_targets.py để khắc phục lỗi khi sync DB Cinder ERROR cinder AttributeError: rpc_available_version
+Comment dòng 
+services.c.rpc_available_version.drop()
+services.c.object_available_version.drop()
+
 
 su -s /bin/sh -c "cinder-manage db sync" cinder
 
@@ -776,7 +761,7 @@ l2_population = True
 
 
 [securitygroup]
-enable_security_group = True
+enable_security_group = True 
 firewall_driver = neutron.agent.linux.iptables_firewall.IptablesFirewallDriver
 
 Cấu hình dịch vụ compute sử dụng dịch vụ network
