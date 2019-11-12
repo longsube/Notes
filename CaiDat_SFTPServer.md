@@ -99,4 +99,5 @@ sftp sftpuser@localhost
 ```
 
 Tham khảo:
+
 [1] - https://linuxconfig.org/how-to-setup-sftp-server-on-ubuntu-18-04-bionic-beaver-with-vsftpd
