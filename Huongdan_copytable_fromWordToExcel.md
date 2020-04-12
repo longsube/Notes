@@ -1,16 +1,15 @@
-# Hướng dẫn sử dụng công cụ đo hiệu năng ổ cứng VDBench
+# Hướng dẫn copy bảng từ Word sang Excel giữ nguyên format bảng (ko bị cắt thành nhiều dòng)
 
-*Chú ý:*
- - Đây là công cụ do Oracle phát triển, có cả phiên bản cho Linux và Windows
- - Hướng dẫn sau thực hiện trên máy ảo Ubuntu14.04, kernel 3.13.0-32-generic
+### Trên file Word
+ - Ctrl + H. 
+ - Tại ô **Find what**, gõ *^p*. Tai ổ **Replace**, gõ *:linebreak*, sau đó chọn *Replace all*
 
 
+### Trên file Excel
+ - Copy bảng sang excel. Bật Find and replace.
+ - Tại ô **Find what**, gõ *:linebreak*. Tai ô **Replace**, nhấn tổ hợp *Ctrl + J*, sau đó chọn *Replace all*.
 
-Ctrl + H. 
-Tại ô "Find what", gõ "^p". Tai ổ Replace, gõ ":linebreak"
-Copy bảng sang excel. Bật Find and replace.
-
-Tại ô "Find what", gõ ":linebreak". Tai ổ Replace, gõ Ctrl + J. Enter. Done
+### Done
 
 
 Tham khảo:
