@@ -1,0 +1,1 @@
+Nơi đặt các ghi chú quan trọng.
