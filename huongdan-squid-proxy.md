@@ -14,7 +14,7 @@ docker run --name squid -d --restart=always \
   sameersbn/squid:3.3.8-23
 ```
 
-Sau khi chạy lệnh trên, container squid tự động chạy và publish port 3128, qua `http` và `https`. Để các máy client có thể kết nối tới git SCM qua proxy, cấu hình proxy cho git cho máy client:
+Sau khi chạy lệnh trên, container squid tự động chạy và publish port `3128`, qua `http` và `https`. Để các máy client có thể kết nối tới git SCM qua proxy, cấu hình proxy cho git cho máy client:
 ```
 git config --global http.proxy http://172.16.68.49:3128
 git ls-remote --exit-code -h "https://[SCM domain]"
