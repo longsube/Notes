@@ -20,6 +20,13 @@ git config --global http.proxy http://172.16.68.49:3128
 git ls-remote --exit-code -h "https://[SCM domain]"
 ```
 
+- `172.16.68.49`: IP của máy proxy để các máy client kết nối tới
+- `3128`: port được mở của squid proxy cho các client kết nối tới
+- `[SCM domain]`: domain của hệ thống SCM công ty
+
+
+```
+
 Để kiểm tra việc kết nối tới SCM:
 ```
 git ls-remote --exit-code -h "https://[SCM domain]"
