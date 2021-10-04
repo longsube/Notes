@@ -1,6 +1,6 @@
 # Hướng dẫn sử dụng squid làm proxy phục vụ việc kết nối tới hệ thống SCM (Source Code Management) của công ty.
 *Chú ý:*
- - Sử dụng image container squid phiên bản sameersbn/squid:3.3.8-23, bản mới nhất 3.5.27-2 đang bị lỗi 
+ - Sử dụng image container squid phiên bản `sameersbn/squid:3.3.8-23`, bản mới nhất `3.5.27-2` đang bị lỗi 
 
 # Giới thiệu:
 Hệ thống SCM công ty được đặt policy chỉ cho phép kết nối từ LAN nội bộ, để có thể lấy code khi ở ngoài, giải pháp là sử dụng một máy trong mạng LAN để tạo proxy kết nối tới SCM. Các máy bên ngoài sẽ quay VPN để kết nối tới máy proxy.
