@@ -9,9 +9,7 @@
 ## 2.Các việc cần làm sau khi phát hiện trở thành F0
 
  - Nếu ở một mình thì không sao, tuy nhiên nếu ở với gia đình thì cần có phương án tự cách ly với gia đình: phòng riêng + khu vệ sinh riêng. Nếu không đủ điều kiện cách ly với gia đình có thể lựa chọn phương án đi cách ly tại các khu tập trung.
-
  - Báo với y tế phường. Dựa vào việc đánh giá tình hình ở trên để đề xuất điều trị tại nhà hoặc đi cách ly tập trung. Trong trừờng hợp của mình thì sau khi  thông báo tình hình và khả năng điều trị tại nhà, y tế Phường đồng ý tuy nhiên cũng không có bất cứ hỗ trợ gì nữa. Nếu ở chung cư, bạn cần báo cho ban quản lý toà nhà để họ có các biện pháp cách ly căn hộ của bạn + hỗ trợ tiếp tế. Toàn bộ các hỗ trợ mình nhận được (thuốc men, vận chuyển đồ) trong thời gian tự cách ly do đơn vị quản lý toà nhà hỗ trợ cư dân. Lưu ý: một số phường có thể  yêu cầu bạn đi cách ly tập trung luôn do lo ngại ảnh hưởng.
-
  - Dọn dẹp nhà cửa, rửa các vật dụng trong nhà bằng cồn, xông phòng bằng xả để làm sạch môi trường, chuẩn bị cho đợt cách ly tại nhà.
 
 ## 3.Các thuốc cần uống trong thời gian điều trị
@@ -34,6 +32,11 @@
 ## 5.Khỏi bệnh
  - Sau 5 ngày mình đã trở lại (+), test PCR thì vẫn chưa hết hoàn toàn, tới ngày thứ 7 thì hoàn toàn khỏi, cả test nhanh, PCR, tới ngày thứ 9 thì vị giác và khứu giác đã gần như khôi phục lại hoàn toàn.
  - Quy định mới là người bệnh phải cách ly tại nhà 10 ngày. Sau 10 ngày cách ly, lên phường kiểm tra và được cấp giấy kết thúc thời gian cách ly, tuy nhiên vẫn phải hạn chế tiếp xúc thêm 7 ngày.
+
+## Kết luận
+ - Các triệu chứng như cảm cúm bình thường, sử dụng thuốc sẽ có tác dụng phụ là gây mệt mỏi đầu óc, mất tập trung.
+ - Thời gian bị cách ly dài trong không gian hẹp sẽ có ảnh hưởng tiêu cực tới tâm lý, do đó nên dành thời gian để tập thể dục nhẹ, đọc sách, gọi điện với mọi người.
+ - Tuân thủ các quy tắc cách ly để bảo vệ cộng đồng, nếu bị phát hiện có thể bị phạt.
 
 
 
