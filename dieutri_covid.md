@@ -1,5 +1,6 @@
 # Note lại kinh nghiệm tự điều trị Covid tại nhà
 
+
 ## 1.Triệu chứng:
  - Ngày tiếp xúc F0: 1/1/2022. 
  - Từ ngày 3/1 bắt đầu cảm thấy mỏi người, ho và ngạt mũi, tuy nhiên test nhanh kết quả vẫn là (-), tới ngày 5/1 thì kết quả test là (+).
@@ -25,16 +26,17 @@
 
 ## 4.Các hoạt động trong thời gian điều trị tại nhà
  - Ăn ngủ đủ, tranh thủ mua nhiều đồ ăn ngon về để tẩm bổ, mặc dù ăn không ra vị gì.
- - Tập thể dục nhẹ nhàng: các bài cross-training như kênh của THENX hoặc Chloe Ting.
- - Theo dõi tình trạng bệnh hàng ngày bằng test nhanh.
+ - Trong thời gian điều trị, cơ thể và đầu óc rất uể oải (do cúm và tác dụng phụi của thuốc), ngoài ra việc không được ra ngoài thời gian dài cũng gây ra một số ảnh hưởng tâm lý. Phương pháp là tập thể dục nhẹ nhàng với các bài cross-training, có thể tham khảo các kênh của THENX hoặc Chloe Ting.
+ - Theo dõi tình trạng bệnh hàng ngày bằng test nhanh. Giá một que test nhanh là 100k/que, nên mua cả hộp giá sẽ rẻ hơn (1.250k/hộp)
    <img src=https://i.imgur.com/nOCtxDM.jpg>
 
 ## 5.Khỏi bệnh
- - Sau 5 ngày mình đã trở lại (+), test PCR thì vẫn chưa hết hoàn toàn, tới ngày thứ 7 thì hoàn toàn khỏi, cả test nhanh, PCR, tới ngày thứ 9 thì vị giác và khứu giác đã gần như khôi phục lại hoàn toàn.
- - Quy định mới là người bệnh phải cách ly tại nhà 10 ngày. Sau 10 ngày cách ly, lên phường kiểm tra và được cấp giấy kết thúc thời gian cách ly, tuy nhiên vẫn phải hạn chế tiếp xúc thêm 7 ngày.
+ - Sau 5 ngày điều trị thì đã khôi phục lại được một phần vị giác, vị ngọt sẽ cảm nhận được đầu tiên, test nhanh đã (-), nhưng test PCR thì vẫn chưa (-), tới ngày thứ 7 thì test nhanh, test PCR đều (-), tới ngày thứ 9 thì vị giác và khứu giác đã gần như khôi phục lại hoàn toàn.
+ - Quy định mới là người bệnh phải cách ly tại nhà 10 ngày. Sau 10 ngày cách ly, lên phường kiểm tra và được cấp giấy kết thúc thời gian cách ly để tái hoà nhập cộng đồng, tuy nhiên vẫn phải hạn chế tiếp xúc thêm 7 ngày.
 
 ## Kết luận
- - Các triệu chứng như cảm cúm bình thường, sử dụng thuốc sẽ có tác dụng phụ là gây mệt mỏi đầu óc, mất tập trung.
+ - Các triệu chứng như cảm cúm bình thường, chú ý tẩm bổ tăng sức đề kháng và xông mũi, súc miệng thường xuyên để nhanh lấy lại lại khứu giác, vị giác. 
+ - Sử dụng thuốc điều trị sẽ có tác dụng phụ là gây mệt mỏi đầu óc, mất tập trung.
  - Thời gian bị cách ly dài trong không gian hẹp sẽ có ảnh hưởng tiêu cực tới tâm lý, do đó nên dành thời gian để tập thể dục nhẹ, đọc sách, gọi điện với mọi người.
  - Tuân thủ các quy tắc cách ly để bảo vệ cộng đồng, nếu bị phát hiện có thể bị phạt.
 
