@@ -3,11 +3,14 @@
 ### Trên file Word
  - Ctrl + H. 
  - Tại ô **Find what**, gõ *^p*. Tai ổ **Replace**, gõ *:linebreak*, sau đó chọn *Replace all*
+ - Tại ô **Find what**, gõ *^l*. Tai ổ **Replace**, gõ *:space*, sau đó chọn *Replace all*
 
 
 ### Trên file Excel
  - Copy bảng sang excel. Bật Find and replace.
  - Tại ô **Find what**, gõ *:linebreak*. Tai ô **Replace**, nhấn tổ hợp *Ctrl + J*, sau đó chọn *Replace all*.
+ - Tại ô **Find what**, gõ *:space. Tai ô **Replace**, nhấn tổ hợp *Ctrl + J*, sau đó chọn *Replace all*.
+
 
 ### Done
 
